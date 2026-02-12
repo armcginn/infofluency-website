@@ -343,7 +343,6 @@ p {
 }
 
 .hero h1 {
-  max-width: 780px;
   margin: 0 auto 24px;
 }
 
@@ -451,6 +450,75 @@ p {
   background: var(--accent-cyan-dim);
 }
 
+/* --- Scale Track (Portfolio Scaling) --- */
+.scale-track {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 40px;
+}
+
+.scale-step {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--transition-med);
+}
+
+.scale-step:hover {
+  background: var(--bg-card-hover);
+}
+
+.scale-step.active {
+  background: var(--accent-cyan-dim);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.scale-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.scale-step h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.scale-step p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.scale-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 1.4rem;
+  color: var(--accent-cyan);
+  opacity: 0.4;
+}
+
+/* --- Accent-left Cards --- */
+.card-accent-left {
+  border-left: 3px solid transparent;
+  text-align: left;
+}
+
+.card-accent-left.cyan {
+  border-left-color: var(--accent-cyan);
+}
+
+.card-accent-left.purple {
+  border-left-color: #a78bfa;
+}
+
 /* --- Scorecard Mock --- */
 .scorecard {
   background: #0d1117;
@@ -463,10 +531,16 @@ p {
 .scorecard-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.scorecard-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .scorecard-title {
@@ -475,9 +549,38 @@ p {
   color: var(--text-white);
 }
 
+.scorecard-legend {
+  display: flex;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-item.standard .legend-dot {
+  background: var(--accent-cyan);
+}
+
+.legend-item.custom .legend-dot {
+  background: #a78bfa;
+}
+
 .scorecard-date {
   font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .kpi-grid {
@@ -497,6 +600,23 @@ p {
 
 .kpi-card:hover {
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* Color-coded borders */
+.kpi-standard {
+  border-top: 2px solid var(--accent-cyan);
+}
+
+.kpi-custom {
+  border-top: 2px solid #a78bfa;
+}
+
+/* Sparkline charts */
+.kpi-chart {
+  width: 100%;
+  height: 36px;
+  margin: 10px 0 6px;
+  display: block;
 }
 
 .kpi-label {
@@ -533,7 +653,7 @@ p {
 }
 
 .kpi-trend.custom {
-  color: var(--accent-cyan);
+  color: #a78bfa;
 }
 
 .kpi-card.dashed {
@@ -735,16 +855,16 @@ p {
 }
 
 .logo-row img {
-  height: 36px;
+  height: 56px;
   width: auto;
-  opacity: 0.5;
-  filter: grayscale(100%) brightness(2);
+  max-width: 180px;
+  object-fit: contain;
+  opacity: 0.6;
   transition: all var(--transition-fast);
 }
 
 .logo-row img:hover {
-  opacity: 0.8;
-  filter: grayscale(0%) brightness(1);
+  opacity: 1;
 }
 
 /* --- Testimonial Quotes --- */
@@ -1071,6 +1191,17 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .scale-track {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .scale-arrow {
+    justify-content: center;
+    padding: 8px 0;
+    transform: rotate(90deg);
+  }
+
   .kpi-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -1136,7 +1267,8 @@ p {
   }
 
   .logo-row img {
-    height: 28px;
+    height: 44px;
+    max-width: 140px;
   }
 
   .footer-grid {

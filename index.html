@@ -44,7 +44,7 @@
     <!-- ===== Hero ===== -->
     <section class="hero glow-section glow-purple">
       <div class="container text-center">
-        <h1 class="fade-in">The deal closed. Now you need to report with&nbsp;confidence and act with&nbsp;speed.</h1>
+        <h1 class="fade-in">The deal closed.<br>Now you need to report with&nbsp;confidence<br>and act with&nbsp;speed.</h1>
         <p class="section-desc centered fade-in">We connect to your systems, automate your KPIs, and deliver a live scorecard in 30 days — so you have the answers before anyone has to ask.</p>
         <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
       </div>
@@ -105,49 +105,105 @@
         </div>
         <div class="scorecard fade-in">
           <div class="scorecard-header">
-            <span class="scorecard-title">Portfolio Company Scorecard</span>
+            <div class="scorecard-header-left">
+              <span class="scorecard-title">Portfolio Company Scorecard</span>
+              <div class="scorecard-legend">
+                <span class="legend-item standard"><span class="legend-dot"></span> Standard KPIs</span>
+                <span class="legend-item custom"><span class="legend-dot"></span> Custom KPIs</span>
+              </div>
+            </div>
             <span class="scorecard-date">Updated: Feb 2026</span>
           </div>
           <div class="kpi-grid">
-            <div class="kpi-card">
+            <!-- Standard KPIs (cyan) -->
+            <div class="kpi-card kpi-standard">
               <div class="kpi-label">Revenue</div>
               <div class="kpi-value">$4.2M</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <defs><linearGradient id="cyanFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,212,255,0.3)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs>
+                <path d="M0,32 L15,28 L30,30 L45,24 L60,20 L75,18 L90,14 L105,10 L120,6" fill="none" stroke="#00d4ff" stroke-width="2"/>
+                <path d="M0,32 L15,28 L30,30 L45,24 L60,20 L75,18 L90,14 L105,10 L120,6 L120,40 L0,40Z" fill="url(#cyanFill)"/>
+              </svg>
               <div class="kpi-trend up">▲ 8.3% vs prior month</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card kpi-standard">
               <div class="kpi-label">EBITDA</div>
               <div class="kpi-value">$680k</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <defs><linearGradient id="cyanFill2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,212,255,0.3)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs>
+                <path d="M0,30 L15,32 L30,28 L45,26 L60,24 L75,22 L90,18 L105,14 L120,12" fill="none" stroke="#00d4ff" stroke-width="2"/>
+                <path d="M0,30 L15,32 L30,28 L45,26 L60,24 L75,22 L90,18 L105,14 L120,12 L120,40 L0,40Z" fill="url(#cyanFill2)"/>
+              </svg>
               <div class="kpi-trend up">▲ 5.1% vs prior month</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card kpi-standard">
               <div class="kpi-label">Cash Position</div>
               <div class="kpi-value">$2.1M</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <path d="M0,20 L15,22 L30,18 L45,20 L60,19 L75,21 L90,20 L105,19 L120,20" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="4,3"/>
+              </svg>
               <div class="kpi-trend flat">— Flat</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card kpi-standard">
               <div class="kpi-label">AR Aging</div>
               <div class="kpi-value">34 days</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <defs><linearGradient id="cyanFill3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(52,211,153,0.25)"/><stop offset="100%" stop-color="rgba(52,211,153,0)"/></linearGradient></defs>
+                <path d="M0,10 L15,12 L30,14 L45,16 L60,20 L75,24 L90,28 L105,30 L120,34" fill="none" stroke="#34d399" stroke-width="2"/>
+                <path d="M0,10 L15,12 L30,14 L45,16 L60,20 L75,24 L90,28 L105,30 L120,34 L120,40 L0,40Z" fill="url(#cyanFill3)"/>
+              </svg>
               <div class="kpi-trend down">▼ Improved from 41</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card kpi-standard">
               <div class="kpi-label">Headcount</div>
               <div class="kpi-value">127</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <rect x="5" y="28" width="10" height="12" rx="2" fill="rgba(0,212,255,0.2)"/>
+                <rect x="20" y="26" width="10" height="14" rx="2" fill="rgba(0,212,255,0.25)"/>
+                <rect x="35" y="24" width="10" height="16" rx="2" fill="rgba(0,212,255,0.3)"/>
+                <rect x="50" y="22" width="10" height="18" rx="2" fill="rgba(0,212,255,0.35)"/>
+                <rect x="65" y="20" width="10" height="20" rx="2" fill="rgba(0,212,255,0.4)"/>
+                <rect x="80" y="16" width="10" height="24" rx="2" fill="rgba(0,212,255,0.5)"/>
+                <rect x="95" y="14" width="10" height="26" rx="2" fill="rgba(0,212,255,0.6)"/>
+                <rect x="110" y="12" width="10" height="28" rx="2" fill="#00d4ff" opacity="0.7"/>
+              </svg>
               <div class="kpi-trend up">+3 this month</div>
             </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Customer Retention</div>
-              <div class="kpi-value">94%</div>
-              <div class="kpi-trend custom">Tailored to you</div>
+            <!-- Custom KPIs (purple) -->
+            <div class="kpi-card kpi-custom">
+              <div class="kpi-label">Utilization Rate</div>
+              <div class="kpi-value">82%</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <defs><linearGradient id="purpFill1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(124,58,237,0.3)"/><stop offset="100%" stop-color="rgba(124,58,237,0)"/></linearGradient></defs>
+                <path d="M0,22 L15,20 L30,18 L45,20 L60,16 L75,14 L90,12 L105,10 L120,8" fill="none" stroke="#a78bfa" stroke-width="2"/>
+                <path d="M0,22 L15,20 L30,18 L45,20 L60,16 L75,14 L90,12 L105,10 L120,8 L120,40 L0,40Z" fill="url(#purpFill1)"/>
+              </svg>
+              <div class="kpi-trend custom">▲ Up from 74%</div>
             </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Pipeline Value</div>
-              <div class="kpi-value">$1.8M</div>
-              <div class="kpi-trend custom">Tailored to you</div>
+            <div class="kpi-card kpi-custom">
+              <div class="kpi-label">Project Profit Margin</div>
+              <div class="kpi-value">38%</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <rect x="2" y="22" width="12" height="18" rx="2" fill="rgba(167,139,250,0.2)"/>
+                <rect x="17" y="18" width="12" height="22" rx="2" fill="rgba(167,139,250,0.25)"/>
+                <rect x="32" y="24" width="12" height="16" rx="2" fill="rgba(167,139,250,0.2)"/>
+                <rect x="47" y="16" width="12" height="24" rx="2" fill="rgba(167,139,250,0.3)"/>
+                <rect x="62" y="20" width="12" height="20" rx="2" fill="rgba(167,139,250,0.25)"/>
+                <rect x="77" y="14" width="12" height="26" rx="2" fill="rgba(167,139,250,0.4)"/>
+                <rect x="92" y="10" width="12" height="30" rx="2" fill="rgba(167,139,250,0.5)"/>
+                <rect x="107" y="8" width="12" height="32" rx="2" fill="#a78bfa" opacity="0.65"/>
+              </svg>
+              <div class="kpi-trend custom">▲ 3.2% vs prior month</div>
             </div>
-            <div class="kpi-card dashed">
-              <div class="kpi-label">Custom KPI</div>
-              <div class="kpi-value">...</div>
-              <div class="kpi-trend custom">Based on discovery</div>
+            <div class="kpi-card kpi-custom">
+              <div class="kpi-label">90-Day Pipeline</div>
+              <div class="kpi-value">$2.4M</div>
+              <svg class="kpi-chart" viewBox="0 0 120 40" preserveAspectRatio="none">
+                <defs><linearGradient id="purpFill2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(124,58,237,0.3)"/><stop offset="100%" stop-color="rgba(124,58,237,0)"/></linearGradient></defs>
+                <path d="M0,30 L15,28 L30,24 L45,26 L60,18 L75,16 L90,12 L105,10 L120,6" fill="none" stroke="#a78bfa" stroke-width="2"/>
+                <path d="M0,30 L15,28 L30,24 L45,26 L60,18 L75,16 L90,12 L105,10 L120,6 L120,40 L0,40Z" fill="url(#purpFill2)"/>
+              </svg>
+              <div class="kpi-trend custom">▲ 18% vs prior quarter</div>
             </div>
           </div>
         </div>
@@ -238,10 +294,10 @@
         <div class="logo-row fade-in">
           <img src="assets/clients/navant.png" alt="Navant">
           <img src="assets/clients/rotunda.png" alt="Rotunda Capital Partners">
-          <img src="assets/clients/efcg.avif" alt="EFCG">
+          <img src="assets/clients/efcg.png" alt="EFCG">
           <img src="assets/clients/enstor.png" alt="Enstor">
           <img src="assets/clients/chief-outsiders.png" alt="Chief Outsiders">
-          <img src="assets/clients/hxvf.jpg" alt="HXVF">
+          <img src="assets/clients/hxvf.png" alt="HXVF">
         </div>
         <div class="quote-grid cols-3 fade-in">
           <div class="quote-block">
@@ -289,7 +345,7 @@
         <div>
           <h4>Contact</h4>
           <div class="footer-links">
-            <a href="mailto:alyssa@infofluency.com">alyssa@infofluency.com</a>
+            <a href="mailto:alyssamcginn@infofluency.net">alyssamcginn@infofluency.net</a>
             <a href="https://calendly.com/alyssamcginn/intro-and-demo">Book a Discovery Call</a>
           </div>
         </div>
