@@ -909,32 +909,34 @@ p {
   padding: 0 2px;
 }
 
-/* --- Client Logo Row --- */
-.logo-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
+/* --- Client Logo Marquee --- */
+.logo-marquee {
+  overflow: hidden;
   margin-top: 32px;
   padding: 20px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
-.logo-row img {
-  height: 44px;
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.logo-track img {
+  height: 36px;
   width: auto;
-  max-width: 160px;
   object-fit: contain;
   opacity: 0.7;
-  transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
-.logo-row img:hover {
-  opacity: 1;
-}
-
-.logo-row img[src$=".svg"] {
-  height: 28px;
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* --- Testimonial Quotes --- */
@@ -1336,13 +1338,12 @@ p {
     height: 96px;
   }
 
-  .logo-row {
-    gap: 20px;
+  .logo-track {
+    gap: 40px;
   }
 
-  .logo-row img {
-    height: 44px;
-    max-width: 140px;
+  .logo-track img {
+    height: 30px;
   }
 
   .footer-grid {
