@@ -346,6 +346,14 @@ p {
   margin: 0 auto 24px;
 }
 
+.hero-sub {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  margin: 0 auto 16px;
+  letter-spacing: 0.01em;
+}
+
 .hero .section-desc {
   max-width: 580px;
   margin: 0 auto 40px;
@@ -719,6 +727,64 @@ p {
   line-height: 1.6;
 }
 
+/* What's Included & Terms boxes */
+.included-box,
+.terms-box {
+  margin-top: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+
+.included-box h3,
+.terms-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 32px;
+}
+
+.checklist li {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  padding-left: 24px;
+  position: relative;
+}
+
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.terms-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.terms-box li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.terms-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+}
+
 /* --- FAQ --- */
 .faq-list {
   margin-top: 40px;
@@ -865,6 +931,10 @@ p {
 
 .logo-row img:hover {
   opacity: 1;
+}
+
+.logo-row img[src$=".svg"] {
+  height: 28px;
 }
 
 /* --- Testimonial Quotes --- */
@@ -1249,6 +1319,10 @@ p {
 
   .quote-grid.cols-3,
   .quote-grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist {
     grid-template-columns: 1fr;
   }
 
