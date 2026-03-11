@@ -1,0 +1,66 @@
+{
+  "articles": [
+    {
+      "title": "If You're Budgeting for a Data Foundation for Your PortCo, This Is What to Expect",
+      "category": "post-acquisition",
+      "categoryLabel": "Post-Acquisition",
+      "date": "Mar 2026",
+      "description": "A practical breakdown of what it actually costs to build reporting infrastructure at a portfolio company — from quick wins to enterprise-grade systems.",
+      "readTime": "8 min read",
+      "url": "articles/budgeting-data-foundation.html"
+    },
+    {
+      "title": "Enterprise Consulting vs. Boutique: What PE Firms Actually Get for Their Money",
+      "category": "build-vs-buy",
+      "categoryLabel": "Build vs. Buy",
+      "date": "Feb 2026",
+      "description": "Comparing the real-world tradeoffs between large consulting firms and specialized boutiques for portfolio company analytics work.",
+      "readTime": "7 min read",
+      "url": "articles/enterprise-vs-boutique.html"
+    },
+    {
+      "title": "Integration Planning: When to Bring In an Analytics Team",
+      "category": "post-acquisition",
+      "categoryLabel": "Post-Acquisition",
+      "date": "Feb 2026",
+      "description": "Timing is everything in post-close integration. Here's when analytics resources add the most value — and when you're better off waiting.",
+      "readTime": "6 min read",
+      "url": "articles/integration-planning.html"
+    },
+    {
+      "title": "8 KPIs Every PE-Backed Company Should Track (And How to Automate Them)",
+      "category": "kpi-tracking",
+      "categoryLabel": "KPI Tracking",
+      "date": "Jan 2026",
+      "description": "The essential metrics every operating partner needs visibility into — plus practical guidance on how to get them without adding headcount.",
+      "readTime": "8 min read",
+      "url": "articles/8-kpis-pe-backed.html"
+    }
+  ],
+  "caseStudies": [
+    {
+      "title": "Allied Materials: Live KPI Scorecard in 28 Days Post-Close",
+      "category": "post-acquisition",
+      "categoryLabel": "Post-Acquisition",
+      "industry": "Manufacturing",
+      "problem": "No reporting infrastructure before first board meeting",
+      "url": "#"
+    },
+    {
+      "title": "NSL Aerospace: One View Across Three Portfolio Companies",
+      "category": "board-reporting",
+      "categoryLabel": "Board Reporting",
+      "industry": "Aerospace",
+      "problem": "Three add-ons, three systems, no portfolio-wide visibility",
+      "url": "#"
+    },
+    {
+      "title": "Distribution Company: From Spreadsheet Chaos to Automated Reporting",
+      "category": "data-automation",
+      "categoryLabel": "Data Automation",
+      "industry": "Distribution",
+      "problem": "12+ hours/month of manual reporting, no early warning system",
+      "url": "#"
+    }
+  ]
+}

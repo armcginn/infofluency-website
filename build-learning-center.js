@@ -1,0 +1,720 @@
+#!/usr/bin/env node
+
+/**
+ * Build script for Learning Center page
+ *
+ * Usage: node build-learning-center.js
+ *
+ * Reads content from content/learning-center.json and generates learning-center.html
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Read content
+const contentPath = path.join(__dirname, 'content', 'learning-center.json');
+const content = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
+
+// Generate article cards HTML
+function generateArticleCards(articles) {
+  return articles.map(article => `
+            <!-- Article: ${article.title} -->
+            <a href="${article.url}" class="article-card" data-category="${article.category}">
+              <div class="article-card-header">
+                <span class="article-tag">${article.categoryLabel}</span>
+                <span class="article-date">${article.date}</span>
+              </div>
+              <h3>${article.title}</h3>
+              <p>${article.description}</p>
+              <div class="article-card-footer">
+                <span class="read-time">${article.readTime}</span>
+                <span class="card-cta">Read article <span class="arrow">→</span></span>
+              </div>
+            </a>`).join('\n');
+}
+
+// Generate case study cards HTML
+function generateCaseStudyCards(caseStudies) {
+  return caseStudies.map(cs => `
+            <!-- Case Study: ${cs.title} -->
+            <a href="${cs.url}" class="case-card" data-category="${cs.category}">
+              <div class="case-card-header">
+                <span class="case-tag">${cs.categoryLabel}</span>
+                <span class="industry-tag">${cs.industry}</span>
+              </div>
+              <h3>${cs.title}</h3>
+              <p class="case-problem"><strong>Problem:</strong> ${cs.problem}</p>
+              <div class="case-card-footer">
+                <span class="case-cta">Read case study <span class="arrow">→</span></span>
+              </div>
+            </a>`).join('\n');
+}
+
+// Generate full HTML page
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Center — infoFluency | Articles, Guides & Case Studies for PE Firms</title>
+  <meta name="description" content="Practical intelligence for PE firms and portfolio companies navigating data, reporting, and operations. Articles, guides, and case studies on post-acquisition analytics, board reporting, and KPI automation.">
+  <meta property="og:title" content="infoFluency Learning Center — Resources for PE Data & Reporting">
+  <meta property="og:description" content="Articles, guides, and case studies for PE firms and portfolio companies on data foundations, KPI tracking, and operational reporting.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo-icon.png">
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Learning Center Specific Styles */
+
+    /* Hero adjustments */
+    .lc-hero {
+      padding: 100px 0 60px;
+    }
+
+    .lc-hero .section-tag {
+      margin-bottom: 12px;
+    }
+
+    .lc-hero h1 {
+      margin-bottom: 16px;
+    }
+
+    .lc-hero .hero-desc {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--text-body);
+    }
+
+    /* Tabs */
+    .tabs-container {
+      padding: 0 0 80px;
+    }
+
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 16px 28px;
+      cursor: pointer;
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-body);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      color: var(--text-white);
+    }
+
+    .tab-btn[aria-selected="true"]::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Filter Pills */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .filter-pill {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-pill:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text-body);
+    }
+
+    .filter-pill[aria-pressed="true"] {
+      background: var(--accent-cyan-dim);
+      border-color: rgba(0, 212, 255, 0.3);
+      color: var(--accent-cyan);
+    }
+
+    /* Content Cards Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    /* Article Card */
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all var(--transition-med);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .article-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0, 212, 255, 0.15);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .article-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .article-tag {
+      background: var(--accent-cyan-dim);
+      color: var(--accent-cyan);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .article-date {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+    }
+
+    .article-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .article-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .article-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .read-time {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      transition: gap var(--transition-fast);
+    }
+
+    .article-card:hover .card-cta {
+      gap: 10px;
+    }
+
+    .card-cta .arrow {
+      transition: transform var(--transition-fast);
+    }
+
+    .article-card:hover .card-cta .arrow {
+      transform: translateX(3px);
+    }
+
+    /* Case Study Card */
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all var(--transition-med);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .case-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(124, 58, 237, 0.2);
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .case-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .case-tag {
+      background: var(--accent-purple-dim);
+      color: #a78bfa;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .industry-tag {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .case-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .case-problem {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .case-problem strong {
+      color: var(--text-body);
+      font-weight: 600;
+    }
+
+    .case-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .case-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #a78bfa;
+      transition: gap var(--transition-fast);
+    }
+
+    .case-card:hover .case-cta {
+      gap: 10px;
+    }
+
+    .case-cta .arrow {
+      transition: transform var(--transition-fast);
+    }
+
+    .case-card:hover .case-cta .arrow {
+      transform: translateX(3px);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      display: none;
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
+    .empty-state p {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Hidden card state for filtering */
+    .content-grid .article-card.hidden,
+    .content-grid .case-card.hidden {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .lc-hero {
+        padding: 80px 0 40px;
+      }
+
+      .tabs-nav {
+        gap: 0;
+      }
+
+      .tab-btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+      }
+
+      .filter-row {
+        gap: 8px;
+      }
+
+      .filter-pill {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .article-card,
+      .case-card {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-white.png" alt="infoFluency">
+      </a>
+      <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="nav-cta-mobile" style="display:none;">Book a Call</a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="how-we-work.html" class="nav-link">How We Work</a>
+        <a href="why-infofluency.html" class="nav-link">Why infoFluency</a>
+        <a href="learning-center.html" class="nav-link active">Learning Center</a>
+        <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="nav-cta">Book a Discovery Call <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="lc-hero glow-section glow-cyan">
+      <div class="container text-center">
+        <span class="section-tag fade-in">infoFluency</span>
+        <h1 class="fade-in">The Learning Center</h1>
+        <p class="hero-desc fade-in">Practical intelligence for PE firms and portfolio companies navigating data, reporting, and operations.</p>
+      </div>
+    </section>
+
+    <!-- Tabs & Content Section -->
+    <section class="tabs-container">
+      <div class="container">
+
+        <!-- Tab Navigation -->
+        <div class="tabs-nav" role="tablist" aria-label="Content categories">
+          <button
+            class="tab-btn"
+            id="tab-articles"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-articles"
+          >Articles &amp; Blog</button>
+          <button
+            class="tab-btn"
+            id="tab-cases"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-cases"
+          >Case Studies</button>
+        </div>
+
+        <!-- Articles & Blog Panel -->
+        <div
+          class="tab-panel active"
+          id="panel-articles"
+          role="tabpanel"
+          aria-labelledby="tab-articles"
+        >
+          <!-- Filter Pills -->
+          <div class="filter-row" role="group" aria-label="Filter articles by category">
+            <button class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-pill" data-filter="post-acquisition" aria-pressed="false">Post-Acquisition</button>
+            <button class="filter-pill" data-filter="board-reporting" aria-pressed="false">Board Reporting</button>
+            <button class="filter-pill" data-filter="kpi-tracking" aria-pressed="false">KPI Tracking</button>
+            <button class="filter-pill" data-filter="data-automation" aria-pressed="false">Data Automation</button>
+            <button class="filter-pill" data-filter="build-vs-buy" aria-pressed="false">Build vs. Buy</button>
+          </div>
+
+          <!-- Articles Grid -->
+          <div class="content-grid" id="articles-grid">
+${generateArticleCards(content.articles)}
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state" id="articles-empty">
+            <p>No articles found in this category. Check back soon for new content.</p>
+          </div>
+        </div>
+
+        <!-- Case Studies Panel -->
+        <div
+          class="tab-panel"
+          id="panel-cases"
+          role="tabpanel"
+          aria-labelledby="tab-cases"
+        >
+          <!-- Filter Pills -->
+          <div class="filter-row" role="group" aria-label="Filter case studies by category">
+            <button class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-pill" data-filter="post-acquisition" aria-pressed="false">Post-Acquisition</button>
+            <button class="filter-pill" data-filter="board-reporting" aria-pressed="false">Board Reporting</button>
+            <button class="filter-pill" data-filter="data-automation" aria-pressed="false">Data Automation</button>
+          </div>
+
+          <!-- Case Studies Grid -->
+          <div class="content-grid" id="cases-grid">
+${generateCaseStudyCards(content.caseStudies)}
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state" id="cases-empty">
+            <p>No case studies found in this category. Check back soon for new content.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="cta-section">
+      <div class="container text-center">
+        <h2 class="fade-in">Ready to see your numbers in one place?</h2>
+        <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-white.png" alt="infoFluency">
+          <p>Investment-centric data solutions. Automated scorecards, portfolio intelligence, and KPI visibility for PE firms and their portfolio companies.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="how-we-work.html">How We Work</a>
+            <a href="why-infofluency.html">Why infoFluency</a>
+            <a href="learning-center.html">Learning Center</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:alyssamcginn@infofluency.net">alyssamcginn@infofluency.net</a>
+            <a href="https://calendly.com/alyssamcginn/intro-and-demo">Book a Discovery Call</a>
+          </div>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="https://www.linkedin.com/company/infofluency/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 infoFluency Data Solutions. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/infofluency/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // --- Tab Switching ---
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const targetId = btn.getAttribute('aria-controls');
+
+          // Update tab buttons
+          tabBtns.forEach(function(b) {
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.setAttribute('aria-selected', 'true');
+
+          // Update panels
+          tabPanels.forEach(function(panel) {
+            panel.classList.remove('active');
+          });
+          document.getElementById(targetId).classList.add('active');
+
+          // Reset filters when switching tabs
+          const activePanel = document.getElementById(targetId);
+          const filterPills = activePanel.querySelectorAll('.filter-pill');
+          filterPills.forEach(function(pill) {
+            pill.setAttribute('aria-pressed', pill.dataset.filter === 'all' ? 'true' : 'false');
+          });
+
+          // Show all cards in the new panel
+          const cards = activePanel.querySelectorAll('.article-card, .case-card');
+          cards.forEach(function(card) {
+            card.classList.remove('hidden');
+          });
+
+          // Hide empty state
+          const emptyState = activePanel.querySelector('.empty-state');
+          if (emptyState) {
+            emptyState.classList.remove('visible');
+          }
+        });
+
+        // Keyboard navigation
+        btn.addEventListener('keydown', function(e) {
+          let index = Array.from(tabBtns).indexOf(btn);
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            index = (index + 1) % tabBtns.length;
+            tabBtns[index].focus();
+            tabBtns[index].click();
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            index = (index - 1 + tabBtns.length) % tabBtns.length;
+            tabBtns[index].focus();
+            tabBtns[index].click();
+          }
+        });
+      });
+
+      // --- Filter Functionality ---
+      function setupFilters(panelId, gridId, emptyId) {
+        const panel = document.getElementById(panelId);
+        const grid = document.getElementById(gridId);
+        const emptyState = document.getElementById(emptyId);
+        const filterPills = panel.querySelectorAll('.filter-pill');
+        const cards = grid.querySelectorAll('.article-card, .case-card');
+
+        filterPills.forEach(function(pill) {
+          pill.addEventListener('click', function() {
+            const filter = pill.dataset.filter;
+
+            // Update pressed state
+            filterPills.forEach(function(p) {
+              p.setAttribute('aria-pressed', 'false');
+            });
+            pill.setAttribute('aria-pressed', 'true');
+
+            // Filter cards
+            let visibleCount = 0;
+            cards.forEach(function(card) {
+              const category = card.dataset.category;
+              if (filter === 'all' || category === filter) {
+                card.classList.remove('hidden');
+                visibleCount++;
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+
+            // Show/hide empty state
+            if (visibleCount === 0) {
+              emptyState.classList.add('visible');
+            } else {
+              emptyState.classList.remove('visible');
+            }
+          });
+        });
+      }
+
+      // Initialize filters for both panels
+      setupFilters('panel-articles', 'articles-grid', 'articles-empty');
+      setupFilters('panel-cases', 'cases-grid', 'cases-empty');
+
+    })();
+  </script>
+</body>
+</html>
+`;
+
+// Write output file
+const outputPath = path.join(__dirname, 'learning-center.html');
+fs.writeFileSync(outputPath, html);
+
+console.log('✓ Built learning-center.html');
+console.log(`  - ${content.articles.length} articles`);
+console.log(`  - ${content.caseStudies.length} case studies`);
