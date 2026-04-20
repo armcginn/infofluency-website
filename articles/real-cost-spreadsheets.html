@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Real Cost of Running Your Aerospace Business on Spreadsheets — infoFluency</title>
+  <meta name="description" content="Why manual reporting creates hidden risks — and what the alternative looks like. If you've ever spent a Friday afternoon hunting down the right version of a spreadsheet, you know the problem.">
+  <meta property="og:title" content="The Real Cost of Running Your Aerospace Business on Spreadsheets — infoFluency">
+  <meta property="og:description" content="Why manual reporting creates hidden risks — and what the alternative looks like.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/logo-icon.png">
+  <link rel="icon" type="image/png" href="../assets/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Article Page Styles */
+    .article-hero {
+      padding: 100px 0 60px;
+    }
+
+    .article-hero .container {
+      max-width: 800px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .article-tag {
+      background: var(--accent-cyan-dim);
+      color: var(--accent-cyan);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .article-date,
+    .article-author {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .article-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Article Content */
+    .article-content {
+      padding: 60px 0 100px;
+    }
+
+    .article-content .container {
+      max-width: 720px;
+    }
+
+    .article-body h2 {
+      font-size: 1.5rem;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      color: var(--text-white);
+    }
+
+    .article-body h3 {
+      font-size: 1.2rem;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      color: var(--text-white);
+    }
+
+    .article-body p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: var(--text-body);
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+
+    .article-body li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      color: var(--text-body);
+      list-style: disc;
+    }
+
+    .article-body ol li {
+      list-style: decimal;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--accent-cyan);
+      padding-left: 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--text-body);
+    }
+
+    .article-body strong {
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .article-body a {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .article-body a:hover {
+      color: #33dfff;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      transition: color var(--transition-fast);
+    }
+
+    .back-link:hover {
+      color: var(--accent-cyan);
+    }
+
+    .back-link .arrow {
+      transition: transform var(--transition-fast);
+    }
+
+    .back-link:hover .arrow {
+      transform: translateX(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-hero {
+        padding: 80px 0 40px;
+      }
+
+      .article-content {
+        padding: 40px 0 80px;
+      }
+
+      .article-body h2 {
+        font-size: 1.3rem;
+        margin-top: 36px;
+      }
+
+      .article-body p,
+      .article-body li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/logo-white.png" alt="infoFluency">
+      </a>
+      <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="nav-cta-mobile" style="display:none;">Book a Call</a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../how-we-work.html" class="nav-link">How We Work</a>
+        <a href="../why-infofluency.html" class="nav-link">Why infoFluency</a>
+        <a href="../learning-center.html" class="nav-link">Learning Center</a>
+        <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="nav-cta">Book a Discovery Call <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <main>
+
+    <!-- Article Hero -->
+    <section class="article-hero glow-section glow-cyan">
+      <div class="container">
+        <a href="../aerospace.html" class="back-link fade-in">
+          <span class="arrow">←</span> Back to Aerospace
+        </a>
+        <div class="article-meta fade-in">
+          <span class="article-tag">Digital Transformation</span>
+          <span class="article-tag">Tier 2/3</span>
+          <span class="article-date">April 2026</span>
+          <span class="article-author">Robin Sturgis</span>
+        </div>
+        <h1 class="fade-in">The Real Cost of Running Your Aerospace Business on Spreadsheets</h1>
+        <p class="article-subtitle fade-in">Why manual reporting creates hidden risks — and what the alternative looks like.</p>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+      <div class="container">
+        <div class="article-body fade-in">
+
+          <p>If you've ever spent a Friday afternoon hunting down the "right version" of a spreadsheet before a customer call, you already know the problem. Aerospace businesses — MROs, distributors, manufacturers — are running billion-dollar decisions off of files that live in someone's email, get renamed "FINAL_v3_USE THIS ONE," and break the moment two people edit them at the same time. The real cost isn't the wasted hours (though those are very real). It's the decisions getting made on stale data — wrong inventory counts, missed compliance windows, parts orders placed twice or not at all. In aerospace, that's not just expensive. <strong>It can ground aircraft.</strong></p>
+
+          <p>The hidden risk nobody talks about is <strong>confidence risk</strong>. When leadership can't trust their own numbers without calling three people to "double-check," they slow down. Opportunities get passed on. Bids go out late. Audits become fire drills. Private equity-backed companies feel this especially hard — investors want clean reporting and fast answers, and spreadsheets were never built to deliver either at scale. The data exists somewhere in the business, but it's trapped in silos, living across a dozen tabs owned by a dozen different people with a dozen different definitions of what "on-time delivery" actually means.</p>
+
+          <p>The alternative isn't some massive IT overhaul that takes two years and a $5M budget. The companies getting ahead of this are starting with a simple question: <strong>what decisions do we need to make every week, and where does that data live right now?</strong> From there, even modest changes — connecting your ERP to a live dashboard, standardizing one reporting template across departments — start compounding fast. When your ops team, your sales team, and your leadership are all looking at the same number at the same time, you stop managing your business in the rearview mirror. That's not a tech story. That's a competitive advantage.</p>
+
+          <p>If any of this resonates with what you're seeing in your own operation, I'd love to have a conversation about data automation. Reach out at <a href="mailto:robinsturgis@infofluency.net">robinsturgis@infofluency.net</a> or connect with me on <a href="https://www.linkedin.com/in/robinsturgis" target="_blank" rel="noopener">LinkedIn</a>.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="cta-section">
+      <div class="container text-center">
+        <h2 class="fade-in">Ready to move beyond spreadsheets?</h2>
+        <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/logo-white.png" alt="infoFluency">
+          <p>Investment-centric data solutions. Automated scorecards, portfolio intelligence, and KPI visibility for PE firms and their portfolio companies.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../how-we-work.html">How We Work</a>
+            <a href="../why-infofluency.html">Why infoFluency</a>
+            <a href="../learning-center.html">Learning Center</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:alyssamcginn@infofluency.net">alyssamcginn@infofluency.net</a>
+            <a href="https://calendly.com/alyssamcginn/intro-and-demo">Book a Discovery Call</a>
+          </div>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="https://www.linkedin.com/company/infofluency/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 infoFluency Data Solutions. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/infofluency/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

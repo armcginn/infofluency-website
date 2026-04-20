@@ -417,6 +417,11 @@
       margin-top: 40px;
     }
 
+    a.perspective-card {
+      text-decoration: none;
+      display: block;
+    }
+
     .perspective-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -427,7 +432,12 @@
 
     .perspective-card:hover {
       background: var(--bg-card-hover);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .perspective-card:hover .read-more {
+      color: #33dfff;
     }
 
     .perspective-thumb {
@@ -615,6 +625,185 @@
       display: block;
     }
 
+    /* Client Success Story */
+    .success-story {
+      background: linear-gradient(180deg, #0f1219 0%, var(--bg-primary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .success-story::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      filter: blur(200px);
+      opacity: 0.08;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .success-story > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .success-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon svg {
+      width: 100%;
+      height: 100%;
+      color: var(--accent-cyan);
+    }
+
+    .client-label {
+      display: inline-block;
+      background: var(--accent-cyan-dim);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .success-headline {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 32px;
+    }
+
+    .challenge-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .challenge-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+    }
+
+    .challenge-block p {
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+
+    .built-list {
+      margin-bottom: 32px;
+    }
+
+    .built-list h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 16px;
+    }
+
+    .built-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .built-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .built-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    /* Transformation Table */
+    .transform-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .transform-table th {
+      background: var(--bg-card);
+      color: var(--text-white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .transform-table td {
+      padding: 16px 20px;
+      color: var(--text-body);
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .transform-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .transform-table td:first-child {
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .transform-table .before {
+      color: var(--text-muted);
+    }
+
+    .transform-table .after {
+      color: var(--accent-cyan);
+    }
+
+    /* Pull Quote */
+    .pull-quote {
+      background: linear-gradient(135deg, var(--accent-cyan-dim), var(--accent-purple-dim));
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .pull-quote blockquote {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: var(--text-white);
+      line-height: 1.8;
+      margin: 0;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .engagement-cards {
@@ -641,6 +830,19 @@
 
       .h-timeline-item::after {
         display: none;
+      }
+
+      .transform-table {
+        font-size: 0.85rem;
+      }
+
+      .transform-table th,
+      .transform-table td {
+        padding: 12px;
+      }
+
+      .pull-quote {
+        padding: 32px 24px;
       }
     }
   </style>
@@ -949,6 +1151,81 @@
       </div>
     </section>
 
+    <!-- Client Success Story -->
+    <section class="success-story">
+      <div class="container">
+        <div class="text-center">
+          <div class="success-icon fade-in">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="section-tag fade-in">Client Success Story</span>
+          <span class="client-label fade-in">Aerospace Manufacturer</span>
+          <h2 class="success-headline fade-in">Real-Time Production Intelligence That Runs the Business</h2>
+        </div>
+
+        <div class="challenge-block fade-in">
+          <h4>The Challenge</h4>
+          <p>A precision aerospace manufacturer running production across many CNC cutting machines had no real-time visibility into their operations. Status tracking lived in spreadsheets — manually updated, always behind. Leaders were guessing. Customer service reps were estimating. And the CEO was tethered to the office just to stay informed.</p>
+        </div>
+
+        <div class="built-list fade-in">
+          <h4>What We Built</h4>
+          <ul>
+            <li>Real-time dashboard showing which items are complete, in progress, or on hold due to materials shortages</li>
+            <li>Materials inventory tracking with low-stock alerts — before shortages become disruptions</li>
+            <li>Available capacity visibility so the team knows exactly how many new orders they can commit to selling</li>
+            <li>Automated weekly reports delivered directly to major customers including Boeing</li>
+            <li>Auto-updated executive scorecard populated for management meetings (EOS L10s)</li>
+          </ul>
+        </div>
+
+        <table class="transform-table fade-in">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Before</th>
+              <th>After</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CSRs</td>
+              <td class="before">Guessing on delivery dates</td>
+              <td class="after">Telling customers exactly when orders are done</td>
+            </tr>
+            <tr>
+              <td>Operations</td>
+              <td class="before">Chasing materials reactively</td>
+              <td class="after">Proactively managing inventory before shortages hit</td>
+            </tr>
+            <tr>
+              <td>Management</td>
+              <td class="before">Manual report prep for every meeting</td>
+              <td class="after">Auto-updated scorecard ready for every L10</td>
+            </tr>
+            <tr>
+              <td>Key Customers</td>
+              <td class="before">Ad hoc, inconsistent updates</td>
+              <td class="after">Automated weekly reports on schedule</td>
+            </tr>
+            <tr>
+              <td>CEO</td>
+              <td class="before">Tied to office to maintain visibility</td>
+              <td class="after">Running a second (robotics) business offsite</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pull-quote fade-in">
+          <blockquote>"People stopped making spreadsheets — and started taking action. The business runs faster, smarter, and the CEO can scale beyond this company because the data does the work."</blockquote>
+        </div>
+      </div>
+    </section>
+
     <!-- S10: Social Proof -->
     <section class="glow-section glow-purple">
       <div class="container">
@@ -985,30 +1262,30 @@
         <h2 class="section-title fade-in">From the field — our take on data, technology, and the future of aerospace</h2>
 
         <div class="perspectives-grid fade-in">
-          <div class="perspective-card">
+          <a href="articles/clean-connected-data-mro.html" class="perspective-card">
             <div class="perspective-thumb">📊</div>
             <div class="perspective-content">
               <h4>What clean, connected data actually means for an MRO operation</h4>
               <p>How data infrastructure transforms maintenance operations from reactive to predictive.</p>
-              <span class="read-more">Coming Soon</span>
+              <span class="read-more">Read Article →</span>
             </div>
-          </div>
-          <div class="perspective-card">
+          </a>
+          <a href="articles/real-cost-spreadsheets.html" class="perspective-card">
             <div class="perspective-thumb">📋</div>
             <div class="perspective-content">
               <h4>The real cost of spreadsheet-managed businesses in aerospace</h4>
               <p>Why manual reporting creates hidden risks — and what the alternative looks like.</p>
-              <span class="read-more">Coming Soon</span>
+              <span class="read-more">Read Article →</span>
             </div>
-          </div>
-          <div class="perspective-card">
+          </a>
+          <a href="articles/mckinsey-aerospace-technology-wave.html" class="perspective-card">
             <div class="perspective-thumb">🚀</div>
             <div class="perspective-content">
               <h4>What McKinsey has to say about the aerospace technology wave</h4>
               <p>Industry insights on digital adoption and what it means for Tier 2 and Tier 3 suppliers.</p>
-              <span class="read-more">Coming Soon</span>
+              <span class="read-more">Read Article →</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
