@@ -1660,6 +1660,71 @@ p {
   margin-bottom: 16px;
 }
 
+/* --- FAQ Accordion (used on industry + sell-side pages) --- */
+.faq-accordion {
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.faq-acc-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-acc-question {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+  transition: background var(--transition-fast);
+}
+
+.faq-acc-question:hover {
+  background: var(--bg-card-hover);
+}
+
+.faq-acc-question h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.faq-chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--accent-cyan);
+  transition: transform 0.3s ease;
+}
+
+.faq-acc-item.open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-acc-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-acc-item.open .faq-acc-answer {
+  max-height: 600px;
+}
+
+.faq-acc-answer-content {
+  padding: 0 24px 24px;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
 /* --- Nav Dropdowns --- */
 .nav-dropdown {
   position: relative;
