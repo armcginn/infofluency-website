@@ -1,0 +1,11 @@
+.git
+.git/**
+.gitignore
+.DS_Store
+**/.DS_Store
+.wrangler
+.wrangler/**
+wrangler.jsonc
+.assetsignore
+build-learning-center.js
+*.md
