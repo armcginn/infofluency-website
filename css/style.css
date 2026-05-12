@@ -212,6 +212,7 @@ p {
   align-items: center;
   justify-content: space-between;
   height: 72px;
+  max-width: 1280px;
 }
 
 .nav-logo img {
@@ -222,15 +223,23 @@ p {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 22px;
+}
+
+@media (min-width: 1200px) {
+  .nav-links {
+    gap: 28px;
+  }
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-muted);
   transition: color var(--transition-fast);
   position: relative;
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .nav-link:hover,
@@ -255,11 +264,12 @@ p {
   gap: 6px;
   background: var(--accent-cyan);
   color: var(--bg-primary);
-  font-size: 0.875rem;
+  font-size: 0.825rem;
   font-weight: 700;
-  padding: 10px 22px;
+  padding: 9px 18px;
   border-radius: 8px;
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -1660,14 +1670,16 @@ p {
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-muted);
   padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   transition: color var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .nav-dropdown-toggle:hover,
