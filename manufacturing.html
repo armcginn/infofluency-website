@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Solutions Built for Aerospace, infoFluency</title>
-  <meta name="description" content="Data infrastructure, digital maturity, and new technology adoption for Tier 2 and Tier 3 aerospace companies.">
-  <meta property="og:title" content="Data Solutions Built for Aerospace, infoFluency">
-  <meta property="og:description" content="Data infrastructure for Tier 2 and Tier 3 aerospace suppliers, manufacturers, and MRO operators.">
+  <title>Data Solutions Built for Manufacturing, infoFluency</title>
+  <meta name="description" content="Data infrastructure, digital maturity, and new technology adoption for mid-market industrial manufacturers, from precision shops to assembly and systems builders to OEMs.">
+  <meta property="og:title" content="Data Solutions Built for Manufacturing, infoFluency">
+  <meta property="og:description" content="Data infrastructure for mid-market manufacturers. Dashboards, automated reporting, scorecards, predictive analytics.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/logo-icon.png">
   <link rel="icon" type="image/png" href="assets/logo-icon.png">
@@ -150,20 +150,58 @@
       color: var(--text-muted);
       line-height: 1.6;
     }
-    .logo-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 56px;
-      margin: 32px 0;
-      flex-wrap: wrap;
+    .success-story {
+      background: linear-gradient(180deg, #0f1219 0%, var(--bg-primary) 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .logo-row img {
-      height: 36px;
-      opacity: 0.7;
-      transition: opacity var(--transition-fast);
+    .success-story::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      filter: blur(200px);
+      opacity: 0.08;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
-    .logo-row img:hover { opacity: 1; }
+    .success-story > * { position: relative; z-index: 1; }
+    .client-label {
+      display: inline-block;
+      background: var(--accent-cyan-dim);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .success-headline {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 32px;
+    }
+    .challenge-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+    .challenge-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+    }
+    .challenge-block p { color: var(--text-body); line-height: 1.8; }
     .perspectives-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -248,149 +286,10 @@
       margin-bottom: 32px;
       display: block;
     }
-    .success-story {
-      background: linear-gradient(180deg, #0f1219 0%, var(--bg-primary) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .success-story::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: var(--accent-cyan);
-      filter: blur(200px);
-      opacity: 0.08;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .success-story > * { position: relative; z-index: 1; }
-    .success-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .success-icon svg {
-      width: 100%;
-      height: 100%;
-      color: var(--accent-cyan);
-    }
-    .client-label {
-      display: inline-block;
-      background: var(--accent-cyan-dim);
-      color: var(--accent-cyan);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 8px 16px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-    .success-headline {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--text-white);
-      margin-bottom: 32px;
-    }
-    .challenge-block {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 32px;
-    }
-    .challenge-block h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      margin-bottom: 12px;
-    }
-    .challenge-block p { color: var(--text-body); line-height: 1.8; }
-    .built-list { margin-bottom: 32px; }
-    .built-list h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-white);
-      margin-bottom: 16px;
-    }
-    .built-list ul { list-style: none; padding: 0; }
-    .built-list li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 12px;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-    .built-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent-cyan);
-      font-weight: 700;
-    }
-    .transform-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-subtle);
-    }
-    .transform-table th {
-      background: var(--bg-card);
-      color: var(--text-white);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 16px 20px;
-      text-align: left;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .transform-table td {
-      padding: 16px 20px;
-      color: var(--text-body);
-      font-size: 0.95rem;
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .transform-table tr:last-child td { border-bottom: none; }
-    .transform-table td:first-child {
-      font-weight: 600;
-      color: var(--text-white);
-    }
-    .transform-table .before { color: var(--text-muted); }
-    .transform-table .after { color: var(--accent-cyan); }
-    .pull-quote {
-      background: linear-gradient(135deg, var(--accent-cyan-dim), var(--accent-purple-dim));
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 16px;
-      padding: 48px;
-      text-align: center;
-      margin-top: 40px;
-    }
-    .pull-quote blockquote {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      color: var(--text-white);
-      line-height: 1.8;
-      margin: 0;
-    }
     @media (max-width: 768px) {
       .timing-grid { grid-template-columns: 1fr; }
       .pillars { flex-direction: column; }
       .pillar-connector { width: 2px; height: 40px; }
-      .transform-table { font-size: 0.85rem; }
-      .transform-table th,
-      .transform-table td { padding: 12px; }
-      .pull-quote { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -418,9 +317,9 @@
         <div class="nav-dropdown">
           <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">By Industry <span class="caret">▾</span></button>
           <div class="nav-dropdown-menu">
-            <a href="manufacturing.html">Manufacturing</a>
+            <a href="manufacturing.html" class="active">Manufacturing</a>
             <a href="distribution.html">Distribution</a>
-            <a href="aerospace.html" class="active">Aerospace</a>
+            <a href="aerospace.html">Aerospace</a>
           </div>
         </div>
         <a href="why-infofluency.html" class="nav-link">Why infoFluency</a>
@@ -437,13 +336,13 @@
     <!-- Hero -->
     <section class="aero-hero">
       <div class="container">
-        <h1 class="fade-in">Data Solutions Built for <span class="cyan">Aerospace</span></h1>
-        <p class="tagline fade-in">Data infrastructure, digital maturity, and new technology adoption for Tier 2 and Tier 3 aerospace companies.</p>
+        <h1 class="fade-in">Data Solutions Built for <span class="cyan">Manufacturing</span></h1>
+        <p class="tagline fade-in">Data infrastructure, digital maturity, and new technology adoption for mid-market industrial manufacturers.</p>
         <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
       </div>
     </section>
 
-    <!-- The Challenge -->
+    <!-- Challenge -->
     <section id="challenge">
       <div class="container">
         <div class="text-center">
@@ -452,16 +351,16 @@
         </div>
 
         <div class="tech-pills fade-in">
-          <span class="tech-pill">Predictive Maintenance</span>
-          <span class="tech-pill">AI Analytics</span>
+          <span class="tech-pill">Predictive and Prescriptive Analytics</span>
+          <span class="tech-pill">MES</span>
+          <span class="tech-pill">Industrial IoT</span>
           <span class="tech-pill">Robotics</span>
-          <span class="tech-pill">IoT</span>
-          <span class="tech-pill">Drones</span>
+          <span class="tech-pill">AI Quality Control</span>
         </div>
 
         <div class="problem-text fade-in">
           <p>Your team knows the technology is out there. You've seen what it does for the front-runners.</p>
-          <p>But between where you are and where you want to be sits a hard reality: paper-based records, disconnected systems, fragmented data, and no clear roadmap. Most aerospace companies cite data limitations as their single biggest barrier to digital adoption. It's not a technology problem. It's a foundation problem.</p>
+          <p>But between where you are and where you want to be sits a hard reality: paper-based records, disconnected systems, fragmented data, and no clear roadmap. McKinsey calls it "pilot purgatory." 92% of manufacturers say they lead or match competitors on Industry 4.0 adoption. Most are stuck running significant activities with no meaningful bottom-line results. It's not a technology problem. It's a foundation problem.</p>
           <p><strong>Before the tools can work, the plumbing has to be right.</strong></p>
         </div>
       </div>
@@ -471,24 +370,24 @@
     <section id="who-we-serve">
       <div class="container">
         <span class="section-tag fade-in">Who We Serve</span>
-        <h2 class="section-title fade-in">Tier 2 and Tier 3 aerospace companies</h2>
-        <p class="section-desc fade-in">The suppliers, manufacturers, and MRO operators who keep the industry running.</p>
+        <h2 class="section-title fade-in">Mid-market industrial manufacturers</h2>
+        <p class="section-desc fade-in">The precision shops, assembly and systems builders, and OEMs that supply the industrial economy.</p>
 
         <div class="card-grid cols-3 fade-in">
           <div class="card">
-            <span class="card-icon">🔗</span>
-            <h3>Suppliers</h3>
-            <p>Connecting data across customers, orders, inventory, revenue, and margin to give leadership a clear, real-time picture of business health.</p>
+            <span class="card-icon">🔧</span>
+            <h3>Precision manufacturing</h3>
+            <p>Connecting machine data, materials, and production status across the floor so the work being done, the bottlenecks slowing it, and the capacity available are all visible in real time.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">⚙️</span>
+            <h3>Assembly and systems manufacturers</h3>
+            <p>Pulling together component inputs, subassembly tracking, and finished goods reporting into one view of throughput, quality, and on-time delivery.</p>
           </div>
           <div class="card">
             <span class="card-icon">🏭</span>
-            <h3>Manufacturing</h3>
-            <p>Building the data infrastructure that supports production efficiency, quality control, and technology adoption on the shop floor.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">🔧</span>
-            <h3>MRO</h3>
-            <p>Turning maintenance records and operational history into active intelligence that drives predictive capability and cost reduction.</p>
+            <h3>OEMs</h3>
+            <p>Connecting demand, design, production, and aftermarket data so leadership can see the full lifecycle of the product, from order to install to service.</p>
           </div>
         </div>
       </div>
@@ -499,14 +398,14 @@
       <div class="container">
         <div class="text-center">
           <span class="section-tag fade-in">Why Us</span>
-          <h2 class="section-title fade-in">We know aerospace, and we know data</h2>
+          <h2 class="section-title fade-in">We know manufacturing, and we know data</h2>
         </div>
 
         <div class="pillars fade-in">
           <div class="pillar">
             <div class="pillar-icon">🧠</div>
             <h4>Business Understanding</h4>
-            <p>Deep knowledge of aerospace operations and priorities</p>
+            <p>Deep knowledge of mid-market manufacturing operations and priorities</p>
           </div>
           <div class="pillar-connector"></div>
           <div class="pillar">
@@ -523,7 +422,7 @@
         </div>
 
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <p class="fade-in" style="color: var(--text-body); line-height: 1.8; margin-bottom: 1.5rem;">Our work is concentrated in the commercial aerospace supply chain: precision machining, aero systems manufacturing, raw materials, parts distribution, and MRO. That focus means we're not learning your industry on your dime.</p>
+          <p class="fade-in" style="color: var(--text-body); line-height: 1.8; margin-bottom: 1.5rem;">Our work is concentrated in mid-market industrial manufacturing: precision component shops, assembly and systems operations, contract manufacturers, and OEMs serving aerospace, energy, and industrial markets. That focus means we're not learning your industry on your dime.</p>
           <p class="fade-in" style="color: var(--text-body); line-height: 1.8;">And we're built for the long term. We don't hand off a roadmap and disappear. We partner with you as your data foundation grows, your operations evolve, and new technologies emerge.</p>
         </div>
       </div>
@@ -585,106 +484,50 @@
       </div>
     </section>
 
-    <!-- Client Success Story -->
+    <!-- Recent Engagement -->
     <section class="success-story">
       <div class="container">
         <div class="text-center">
-          <div class="success-icon fade-in">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <span class="section-tag fade-in">Client Success Story</span>
-          <span class="client-label fade-in">Aerospace Manufacturer</span>
-          <h2 class="success-headline fade-in">Real-Time Production Intelligence That Runs the Business</h2>
+          <span class="section-tag fade-in">Recent Engagement</span>
+          <span class="client-label fade-in">Manufacturing · Post-Acquisition</span>
+          <h2 class="success-headline fade-in">A Live KPI Scorecard in 28 Days Post-Close</h2>
         </div>
 
         <div class="challenge-block fade-in">
-          <h4>The Challenge</h4>
-          <p>A precision aerospace manufacturer running production across many CNC cutting machines had no real-time visibility into their operations. Status tracking lived in spreadsheets, manually updated, always behind. Leaders were guessing. Customer service reps were estimating. And the CEO was tethered to the office just to stay informed.</p>
+          <h4>The problem</h4>
+          <p>A middle-market manufacturer came out of acquisition with no reporting infrastructure in place. The first board meeting was weeks away. Leadership needed visibility, fast.</p>
+        </div>
+        <div class="challenge-block fade-in">
+          <h4>What we built</h4>
+          <p>A live KPI scorecard delivered in 28 days, ready for the first board meeting.</p>
+        </div>
+        <div class="challenge-block fade-in">
+          <h4>Outcome</h4>
+          <p>From no reporting infrastructure to a live, automated scorecard in the hands of leadership in under a month.</p>
         </div>
 
-        <div class="built-list fade-in">
-          <h4>What We Built</h4>
-          <ul>
-            <li>Real-time dashboard showing which items are complete, in progress, or on hold due to materials shortages</li>
-            <li>Materials inventory tracking with low-stock alerts, before shortages become disruptions</li>
-            <li>Available capacity visibility so the team knows exactly how many new orders they can commit to selling</li>
-            <li>Automated weekly reports delivered directly to major customers including Boeing</li>
-            <li>Auto-updated executive scorecard populated for management meetings (EOS L10s)</li>
-          </ul>
-        </div>
-
-        <table class="transform-table fade-in">
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>Before</th>
-              <th>After</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CSRs</td>
-              <td class="before">Guessing on delivery dates</td>
-              <td class="after">Telling customers exactly when orders are done</td>
-            </tr>
-            <tr>
-              <td>Operations</td>
-              <td class="before">Chasing materials reactively</td>
-              <td class="after">Proactively managing inventory before shortages hit</td>
-            </tr>
-            <tr>
-              <td>Management</td>
-              <td class="before">Manual report prep for every meeting</td>
-              <td class="after">Auto-updated scorecard ready for every L10</td>
-            </tr>
-            <tr>
-              <td>Key Customers</td>
-              <td class="before">Ad hoc, inconsistent updates</td>
-              <td class="after">Automated weekly reports on schedule</td>
-            </tr>
-            <tr>
-              <td>CEO</td>
-              <td class="before">Tied to office to maintain visibility</td>
-              <td class="after">Running a second (robotics) business offsite</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="pull-quote fade-in">
-          <blockquote>"People stopped making spreadsheets, and started taking action. The business runs faster, smarter, and the CEO can scale beyond this company because the data does the work."</blockquote>
-        </div>
+        <p class="fade-in" style="text-align: center; margin-top: 24px;">
+          <a href="learning-center.html" class="engagement-link">Read the full case study (coming soon) →</a>
+        </p>
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="glow-section glow-purple">
+    <section>
       <div class="container">
         <div class="text-center">
-          <span class="section-tag fade-in">Trusted By</span>
-          <h2 class="section-title fade-in">Don't take our word for it</h2>
-        </div>
-
-        <div class="logo-row fade-in">
-          <img src="assets/clients/retech.png" alt="Retech Systems">
-          <img src="assets/clients/bron-tapes.png" alt="Bron Aerotech">
-          <img src="assets/clients/trinity.png" alt="Trinity Precision">
-          <img src="assets/clients/navant.png" alt="Navant">
-          <img src="assets/clients/nsl.png" alt="NSL Aerospace">
-          <img src="assets/clients/ram.png" alt="RAM Manufacturing">
+          <span class="section-tag fade-in">What clients say</span>
+          <h2 class="section-title fade-in">In their words</h2>
         </div>
 
         <div class="quote-grid cols-2 fade-in">
           <div class="quote-block">
-            <div class="quote-text">"I walked into my first board meeting with live KPIs on screen. The CEO turned to me and said, 'How did you pull this off so fast?' That's when I knew infoFluency was the right call."</div>
-            <div class="quote-attr">, Fractional CFO, PE-Backed Aerospace Company</div>
-          </div>
-          <div class="quote-block">
             <div class="quote-text">"It's just a refresh, just an export, just a pivot table. But all of that took my manual effort every time. It's great to just have a dashboard that does it for me."</div>
             <div class="quote-attr">, President, PE-Backed Manufacturing Company</div>
+          </div>
+          <div class="quote-block">
+            <div class="quote-text">"I walked into my first board meeting with live KPIs on screen. The CEO turned to me and said, 'How did you pull this off so fast?' That's when I knew infoFluency was the right call."</div>
+            <div class="quote-attr">, Fractional CFO, PE-Backed Aerospace Company</div>
           </div>
         </div>
       </div>
@@ -695,30 +538,30 @@
       <div class="container">
         <span class="section-tag fade-in">Perspectives</span>
         <h2 class="section-title fade-in">From the field</h2>
-        <p class="section-desc fade-in">Our take on data, technology, and the future of aerospace.</p>
+        <p class="section-desc fade-in">Our take on data, technology, and the future of manufacturing.</p>
 
         <div class="perspectives-grid fade-in">
-          <a href="articles/clean-connected-data-mro.html" class="perspective-card">
+          <a href="articles/ambiguity-tax.html" class="perspective-card">
             <div class="perspective-thumb">📊</div>
             <div class="perspective-content">
-              <h4>What clean, connected data actually means for an MRO operation</h4>
-              <p>How data infrastructure transforms maintenance operations from reactive to predictive.</p>
+              <h4>The Ambiguity Tax</h4>
+              <p>Why manufacturing companies keep band-aiding their data problems, and what actually wins long-term.</p>
               <span class="read-more">Read Article →</span>
             </div>
           </a>
-          <a href="articles/real-cost-spreadsheets.html" class="perspective-card">
+          <a href="articles/8-kpis-pe-backed.html" class="perspective-card">
             <div class="perspective-thumb">📋</div>
             <div class="perspective-content">
-              <h4>The real cost of spreadsheet-managed businesses in aerospace</h4>
-              <p>Why manual reporting creates hidden risks, and what the alternative looks like.</p>
+              <h4>8 KPIs every PE-backed company should track</h4>
+              <p>The essential metrics every operating partner needs visibility into, plus practical guidance on how to get them without adding headcount.</p>
               <span class="read-more">Read Article →</span>
             </div>
           </a>
-          <a href="articles/mckinsey-aerospace-technology-wave.html" class="perspective-card">
-            <div class="perspective-thumb">🚀</div>
+          <a href="articles/enterprise-vs-boutique.html" class="perspective-card">
+            <div class="perspective-thumb">🔧</div>
             <div class="perspective-content">
-              <h4>What McKinsey has to say about the aerospace technology wave</h4>
-              <p>Industry insights on digital adoption and what it means for Tier 2 and Tier 3 suppliers.</p>
+              <h4>Enterprise consulting vs. boutique</h4>
+              <p>Comparing the real-world tradeoffs between large consulting firms and specialized boutiques for portfolio company analytics.</p>
               <span class="read-more">Read Article →</span>
             </div>
           </a>
@@ -782,7 +625,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
             </div>
             <div class="faq-acc-answer">
-              <div class="faq-acc-answer-content">Tier 2 and Tier 3 aerospace companies are exactly who we built this for. Smaller organizations often see faster and more visible results.</div>
+              <div class="faq-acc-answer-content">Mid-market manufacturers are exactly who we built this for. Smaller organizations often see faster and more visible results.</div>
             </div>
           </div>
           <div class="faq-acc-item">
@@ -791,7 +634,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
             </div>
             <div class="faq-acc-answer">
-              <div class="faq-acc-answer-content">Most aerospace companies have more data than they realize. It's often trapped in paper records, spreadsheets, and disconnected systems. Part of what we do is surface, digitize, and connect that data.</div>
+              <div class="faq-acc-answer-content">Most manufacturers have more data than they realize. It's often trapped in paper records, spreadsheets, and disconnected systems. Part of what we do is surface, digitize, and connect that data.</div>
             </div>
           </div>
           <div class="faq-acc-item">

@@ -25,6 +25,33 @@
     });
   }
 
+  // --- Nav dropdown toggles (mobile + keyboard) ---
+  document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', function (e) {
+      // On mobile (narrow), toggle open class. On desktop, hover handles it but
+      // still allow keyboard activation to open/close.
+      e.preventDefault();
+      const isOpen = dropdown.classList.contains('open');
+      // Close other dropdowns
+      document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+        d.classList.remove('open');
+      });
+    }
+  });
+
   // Show mobile CTA on small screens
   function handleMobileCta() {
     if (mobileCtaEl) {
