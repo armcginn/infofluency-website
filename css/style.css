@@ -346,6 +346,38 @@ p {
   transform: translateX(4px);
 }
 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--accent-cyan);
+  border: 1.5px solid var(--accent-cyan);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-med);
+  margin-left: 12px;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 32px var(--accent-cyan-glow);
+  transform: translateY(-2px);
+}
+
+.btn-secondary .arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-secondary:hover .arrow {
+  transform: translateX(4px);
+}
+
 /* --- Hero --- */
 .hero {
   padding: 120px 0 100px;
