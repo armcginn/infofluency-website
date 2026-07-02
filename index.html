@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>infoFluency, BI and Data Automation for M&amp;A</title>
-  <meta name="description" content="Data infrastructure and BI automation for the buy-side, sell-side, and the manufacturing, distribution, and aerospace companies they move. 20 years in the investment data space.">
+  <meta name="description" content="Data infrastructure, BI automation, and AI readiness for manufacturing, distribution, and aerospace companies and their capital providers. 20 years in the investment data space.">
   <meta property="og:title" content="infoFluency, BI and Data Automation for M&amp;A">
   <meta property="og:description" content="M&amp;A runs on data. We build the foundation underneath.">
   <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
   <script defer src='https://data.processwebsitedata.com/cscripts/St0oemfOud-5a7bf643.js'></script>
   <style>
     .home-hero {
@@ -85,6 +85,102 @@
       margin-bottom: 32px;
       display: block;
     }
+
+    /* McKinsey stat callout (home only) */
+    .mck-section { position: relative; overflow: hidden; }
+    .mck-section::before {
+      content: '';
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      filter: blur(200px);
+      opacity: 0.10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .mck-section > * { position: relative; z-index: 1; }
+    .mck-callout {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 212, 255, 0.18);
+      border-radius: 24px;
+      padding: 48px 48px 40px;
+      box-shadow: 0 0 60px rgba(124, 58, 237, 0.08);
+    }
+    .mck-eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 32px;
+    }
+    .mck-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    .mck-stat { text-align: center; }
+    .mck-num {
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .mck-stat.underway .mck-num { color: var(--accent-cyan); }
+    .mck-stat.gap .mck-num { color: #fbbf24; }
+    .mck-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+    .mck-bar {
+      height: 6px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-top: 16px;
+      overflow: hidden;
+    }
+    .mck-bar span {
+      display: block;
+      height: 100%;
+      border-radius: 100px;
+      background: #fbbf24;
+    }
+    .mck-punch {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.5;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .mck-punch .cyan { color: var(--accent-cyan); }
+    .mck-source {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+    @media (max-width: 768px) {
+      .mck-callout { padding: 36px 24px 28px; }
+      .mck-stats { grid-template-columns: 1fr; gap: 24px; }
+      .mck-punch { font-size: 1.15rem; }
+    }
   </style>
 </head>
 <body>
@@ -102,10 +198,10 @@
       <div class="nav-links">
         <a href="index.html" class="nav-link active">Home</a>
         <div class="nav-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">For Investors &amp; Advisors <span class="caret">▾</span></button>
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Companies &amp; Investors <span class="caret">▾</span></button>
           <div class="nav-dropdown-menu">
-            <a href="buy-side.html">Buy-side</a>
-            <a href="sell-side.html">Sell-side</a>
+            <a href="buy-side.html">Investors</a>
+            <a href="sell-side.html">Companies</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -130,10 +226,10 @@
     <!-- Hero -->
     <section class="home-hero">
       <div class="container">
-        <h1 class="fade-in">M&amp;A runs on data.<br>We build the <span class="cyan">foundation underneath</span>.</h1>
-        <p class="tagline fade-in">BI and data automation for buy-side, sell-side, and the manufacturing, distribution, and aerospace companies they move.</p>
+        <h1 class="fade-in">Good data isn't optional.<br>It's the <span class="cyan">foundation you grow on</span>.</h1>
+        <p class="tagline fade-in">Data infrastructure for manufacturers, distributors, and aerospace companies and their investors: the layer underneath reporting, dashboards, and AI.</p>
         <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
-        <a href="/demo" class="btn-secondary fade-in">Try Interactive Dashboards <span class="arrow">→</span></a>
+        <a href="demo.html" class="btn-secondary fade-in">Try Interactive Dashboards <span class="arrow">→</span></a>
       </div>
     </section>
 
@@ -143,21 +239,20 @@
         <div class="text-center">
           <span class="section-tag fade-in">Who We Serve</span>
           <h2 class="section-title fade-in">Who we serve</h2>
-          <p class="section-desc centered fade-in">Two paths in. Pick the one that fits.</p>
         </div>
 
         <div class="audience-grid fade-in">
           <div class="audience-card">
-            <h3>For Investors &amp; Advisors</h3>
-            <p class="lead">The buy-side and sell-side of M&amp;A. Private equity, family offices, independent sponsors, sell-side advisors, fractional CFOs, and investment bankers.</p>
+            <h3>For Companies &amp; Investors</h3>
+            <p class="lead">The leadership teams and operating partners running the companies that capital backs.</p>
             <div class="audience-links">
-              <a href="buy-side.html">Buy-side <span style="margin-left: auto;">→</span></a>
-              <a href="sell-side.html">Sell-side <span style="margin-left: auto;">→</span></a>
+              <a href="buy-side.html">Investors <span style="margin-left: auto;">→</span></a>
+              <a href="sell-side.html">Companies <span style="margin-left: auto;">→</span></a>
             </div>
           </div>
           <div class="audience-card">
             <h3>By Industry</h3>
-            <p class="lead">The operators running the companies that capital backs. Three industries we know inside out.</p>
+            <p class="lead">Three industries we know inside out.</p>
             <div class="audience-links">
               <a href="manufacturing.html">Manufacturing <span style="margin-left: auto;">→</span></a>
               <a href="distribution.html">Distribution <span style="margin-left: auto;">→</span></a>
@@ -168,11 +263,30 @@
       </div>
     </section>
 
-    <!-- Stat Anchor -->
-    <section class="stat-anchor">
+    <!-- McKinsey Stat Callout -->
+    <section class="mck-section">
       <div class="container">
-        <p class="fade-in"><span class="stat-num">89%</span> of companies have digital and AI transformation work underway. They've captured <span class="stat-num">31%</span> of the revenue they expected, and <span class="stat-num">25%</span> of the cost savings. The gap is rarely the technology. It's the foundation underneath.</p>
-        <span class="stat-source">, McKinsey</span>
+        <div class="mck-callout fade-in">
+          <span class="mck-eyebrow">The gap most companies hit</span>
+          <div class="mck-stats">
+            <div class="mck-stat underway">
+              <div class="mck-num">89%</div>
+              <div class="mck-label">have digital &amp; AI transformation underway</div>
+            </div>
+            <div class="mck-stat gap">
+              <div class="mck-num">31%</div>
+              <div class="mck-label">of the revenue they expected, captured</div>
+              <div class="mck-bar"><span style="width:31%"></span></div>
+            </div>
+            <div class="mck-stat gap">
+              <div class="mck-num">25%</div>
+              <div class="mck-label">of the cost savings they expected, captured</div>
+              <div class="mck-bar"><span style="width:25%"></span></div>
+            </div>
+          </div>
+          <p class="mck-punch">The gap is rarely the technology.<br>It's <span class="cyan">the foundation underneath</span>.</p>
+          <span class="mck-source">Source: McKinsey</span>
+        </div>
       </div>
     </section>
 
@@ -194,22 +308,22 @@
       <div class="container">
         <div class="text-center">
           <span class="section-tag fade-in">How working with us looks</span>
-          <h2 class="section-title fade-in">Two phases. One free conversation to start.</h2>
-          <p class="section-desc centered fade-in">It starts with a free Discovery Call. From there, two phases.</p>
+          <h2 class="section-title fade-in">Three phases, designed for optionality and trust building.</h2>
+          <p class="section-desc centered fade-in">Working with us starts with a Baseline, a low-commitment first step. From there, two more optional progressive phases.</p>
         </div>
 
         <div class="engagement-universal fade-in">
-          <div class="engagement-card discovery">
-            <span class="phase-tag">Discovery Call</span>
-            <h3>Free. No commitment.</h3>
-            <div class="meta">
-              <span>30 minutes</span>
-              <span class="price">Free</span>
-            </div>
-            <p class="body">We listen, share what we've seen, and figure out together whether there's a fit.</p>
-          </div>
           <div class="engagement-card phase-01">
             <span class="phase-tag">Phase 01</span>
+            <h3>Readiness Baseline</h3>
+            <div class="meta">
+              <span>Virtual</span>
+              <span class="price">$500</span>
+            </div>
+            <p class="body">A clear read on your data, reporting, and AI readiness, plus an action plan you can act on. Your low-commitment first step.</p>
+          </div>
+          <div class="engagement-card phase-02">
+            <span class="phase-tag">Phase 02</span>
             <h3>Proof Project</h3>
             <div class="meta">
               <span>30 days</span>
@@ -217,14 +331,14 @@
             </div>
             <p class="body">Usually the scorecard, sometimes another concrete proof. You walk away with a working data product, whether or not you continue with us.</p>
           </div>
-          <div class="engagement-card phase-02">
-            <span class="phase-tag">Phase 02</span>
+          <div class="engagement-card phase-03">
+            <span class="phase-tag">Phase 03</span>
             <h3>The Data Partnership</h3>
             <div class="meta">
               <span>12 months</span>
               <span class="price">From $8,000/mo</span>
             </div>
-            <p class="body">Infrastructure build, automated reporting, dashboards, and a team that knows your business.</p>
+            <p class="body">Execution of your action plan: infrastructure build, automated reporting, dashboards, and a team that knows your business.</p>
           </div>
         </div>
 
@@ -270,15 +384,47 @@
           </div>
           <div class="quote-block">
             <div class="quote-text">"It's just a refresh, just an export, just a pivot table. But all of that took my manual effort every time. It's great to just have a dashboard that does it for me."</div>
-            <div class="quote-attr">, President, PE-Backed Manufacturing Company</div>
+            <div class="quote-attr">, President, Investor-Backed Manufacturing Company</div>
           </div>
         </div>
 
         <p class="fade-in" style="text-align: center; margin-top: 24px;">
-          <a href="learning-center.html" class="engagement-link">Read case studies →</a>
+          <a href="learning-center.html#case-studies" class="engagement-link">Read case studies →</a>
         </p>
       </div>
     </section>
+
+    <!-- AI Readiness Baseline callout -->
+    <section class="glow-section glow-cyan">
+      <div class="container">
+        <div class="baseline-callout fade-in">
+          <span class="section-tag">New · AI Readiness Baseline</span>
+          <h2>AI multiplies whatever you feed it. Make sure that's good data.</h2>
+          <p>A $500 virtual review of your data, reporting, and AI readiness. Get a clear look at your data landscape before you invest in AI, and better numbers to run the business today.</p>
+          <a href="/assessment" class="btn-primary">Get your AI Readiness Baseline <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+    <style>
+      .baseline-callout {
+        max-width: 820px;
+        margin: 0 auto;
+        text-align: center;
+        background: var(--bg-card);
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        border-radius: 24px;
+        padding: 48px 40px;
+      }
+      .baseline-callout h2 { margin: 8px auto 16px; max-width: 640px; }
+      .baseline-callout p {
+        color: var(--text-body);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 620px;
+        margin: 0 auto 28px;
+      }
+      @media (max-width: 768px) { .baseline-callout { padding: 36px 24px; } }
+    </style>
 
     <!-- Final CTA -->
     <section class="final-cta">
@@ -298,13 +444,13 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/logo-white.png" alt="infoFluency">
-          <p>Data infrastructure and BI automation for the buy-side, sell-side, and the manufacturing, distribution, and aerospace companies they move.</p>
+          <p>Data infrastructure, BI automation, and AI readiness for manufacturing, distribution, and aerospace companies and their capital providers.</p>
         </div>
         <div>
-          <h4>For Investors &amp; Advisors</h4>
+          <h4>Companies &amp; Investors</h4>
           <div class="footer-links">
-            <a href="buy-side.html">Buy-side</a>
-            <a href="sell-side.html">Sell-side</a>
+            <a href="buy-side.html">Investors</a>
+            <a href="sell-side.html">Companies</a>
           </div>
         </div>
         <div>
@@ -320,8 +466,8 @@
           <div class="footer-links">
             <a href="why-infofluency.html">Why infoFluency</a>
             <a href="how-we-work.html">How We Work</a>
+            <a href="/assessment">AI Readiness Baseline</a>
             <a href="learning-center.html">Learning Center</a>
-            <a href="mailto:alyssamcginn@infofluency.net">alyssamcginn@infofluency.net</a>
           </div>
         </div>
       </div>
