@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start your Baseline, AI Readiness Baseline, infoFluency</title>
+  <meta name="description" content="Start your AI Readiness Baseline: tell us about your business, then pay. Booking comes right after payment.">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Start your AI Readiness Baseline, infoFluency">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/logo-icon.png">
+  <link rel="icon" type="image/png" href="/assets/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <script defer src='https://data.processwebsitedata.com/cscripts/St0oemfOud-5a7bf643.js'></script>
+  <style>
+    /* ===== Start / launch flow — page-specific ===== */
+    .flow-hero {
+      padding: 100px 0 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .flow-hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: var(--accent-purple);
+      filter: blur(240px);
+      opacity: 0.18;
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .flow-hero > * { position: relative; z-index: 1; }
+    .flow-hero h1 { max-width: 640px; margin: 8px auto 16px; }
+    .flow-hero p { color: var(--text-body); max-width: 560px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .back-link:hover { color: var(--accent-cyan); }
+
+    /* Progress cue */
+    .flow-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px auto 8px;
+      max-width: 560px;
+    }
+    .flow-progress .node { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; flex-shrink: 0; }
+    .flow-progress .dot {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem;
+      border: 2px solid var(--border-subtle); background: var(--bg-card); color: var(--text-muted);
+    }
+    .flow-progress .node.active .dot { background: var(--accent-cyan); border-color: var(--accent-cyan); color: var(--bg-primary); }
+    .flow-progress .node .label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-muted); max-width: 90px;
+    }
+    .flow-progress .node.active .label { color: var(--text-white); }
+    .flow-progress .bar { flex: 1; height: 2px; background: var(--border-subtle); margin: 0 8px 26px; }
+    .flow-progress .bar.done { background: var(--accent-cyan); opacity: 0.5; }
+
+    .flow-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+    .flow-card .step-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-cyan); margin-bottom: 8px;
+    }
+    .flow-card h2 { font-size: 1.4rem; margin-bottom: 20px; }
+    .airtable-embed { width: 100%; border-radius: 8px; }
+    .pay-row {
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .pay-price { font-size: 2.4rem; font-weight: 800; color: var(--text-white); line-height: 1; }
+    .pay-price span { font-size: 1rem; font-weight: 600; color: var(--text-muted); }
+    .pay-after { font-size: 0.95rem; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+    @media (max-width: 768px) {
+      .flow-card { padding: 24px 20px; }
+      .flow-progress .node .label { font-size: 0.62rem; }
+      .flow-progress .dot { width: 34px; height: 34px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/index.html" class="nav-logo">
+        <img src="/assets/logo-white.png" alt="infoFluency">
+      </a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Companies &amp; Investors <span class="caret">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <a href="/buy-side.html">Investors</a>
+            <a href="/sell-side.html">Companies</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">By Industry <span class="caret">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <a href="/manufacturing.html">Manufacturing</a>
+            <a href="/distribution.html">Distribution</a>
+            <a href="/aerospace.html">Aerospace</a>
+          </div>
+        </div>
+        <a href="/why-infofluency.html" class="nav-link">Why infoFluency</a>
+        <a href="/learning-center.html" class="nav-link">Learning Center</a>
+        <a href="/how-we-work.html" class="nav-link">How We Work</a>
+        <a href="/assessment" class="nav-cta">AI Readiness Baseline <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <main>
+
+    <!-- ===== Header ===== -->
+    <section class="flow-hero">
+      <div class="container">
+        <a href="/assessment" class="back-link fade-in">← Back to the overview</a>
+        <h1 class="fade-in">Start your Baseline</h1>
+        <p class="fade-in">Two quick steps here, then you'll pick your two calls. The whole thing takes a few minutes.</p>
+
+        <!-- Progress cue -->
+        <div class="flow-progress fade-in">
+          <div class="node active">
+            <div class="dot">1</div>
+            <span class="label">Tell us</span>
+          </div>
+          <div class="bar done"></div>
+          <div class="node active">
+            <div class="dot">2</div>
+            <span class="label">Payment</span>
+          </div>
+          <div class="bar"></div>
+          <div class="node">
+            <div class="dot">3</div>
+            <span class="label">Book</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Steps ===== -->
+    <section style="padding-top: 32px;">
+      <div class="container">
+        <!-- Step 1: Intake form -->
+        <div class="flow-card fade-in">
+          <span class="step-eyebrow">Step 1 of 3</span>
+          <h2>Tell us about your business</h2>
+          <iframe class="airtable-embed" src="https://airtable.com/embed/appLsmRi0jP8pBPkH/shrtSQvd9KfGy2Q5T" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+
+        <!-- Step 2: Payment -->
+        <div class="flow-card fade-in">
+          <span class="step-eyebrow">Step 2 of 3</span>
+          <h2>Payment</h2>
+          <div class="pay-row">
+            <div class="pay-price">$500 <span>· virtual</span></div>
+            <a href="https://buy.stripe.com/bJedRaf5V07b57m9wWaMU01" class="btn-primary" target="_blank" rel="noopener">Pay</a>
+          </div>
+          <p class="pay-after">Next step: book your two baseline calls.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/assets/logo-white.png" alt="infoFluency">
+          <p>Data infrastructure, BI automation, and AI readiness for manufacturing, distribution, and aerospace companies and their capital providers.</p>
+        </div>
+        <div>
+          <h4>Companies &amp; Investors</h4>
+          <div class="footer-links">
+            <a href="/buy-side.html">Investors</a>
+            <a href="/sell-side.html">Companies</a>
+          </div>
+        </div>
+        <div>
+          <h4>By Industry</h4>
+          <div class="footer-links">
+            <a href="/manufacturing.html">Manufacturing</a>
+            <a href="/distribution.html">Distribution</a>
+            <a href="/aerospace.html">Aerospace</a>
+          </div>
+        </div>
+        <div>
+          <h4>infoFluency</h4>
+          <div class="footer-links">
+            <a href="/why-infofluency.html">Why infoFluency</a>
+            <a href="/how-we-work.html">How We Work</a>
+            <a href="/assessment">AI Readiness Baseline</a>
+            <a href="/learning-center.html">Learning Center</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 infoFluency Data Solutions. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/infofluency/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
