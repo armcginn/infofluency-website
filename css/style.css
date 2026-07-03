@@ -121,13 +121,20 @@ p {
 }
 
 .section-tag {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-cyan);
   margin-bottom: 16px;
   display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .section-tag {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
 }
 
 .section-title {
@@ -450,6 +457,11 @@ p {
   font-size: 2rem;
   margin-bottom: 16px;
   display: block;
+}
+
+/* Larger icons in the industry-page "Who We Serve" boxes */
+#who-we-serve .card-icon {
+  font-size: 2.6rem;
 }
 
 /* Stat cards */
@@ -1603,9 +1615,10 @@ p {
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  font-size: 1.8rem;
-  color: var(--text-faint);
-  opacity: 0.5;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  opacity: 0.85;
 }
 
 /* Responsive for phases */

@@ -40,8 +40,12 @@
     .home-hero h1 {
       margin: 0 auto 24px;
       max-width: 920px;
+      text-wrap: balance;
     }
     .home-hero h1 .cyan { color: var(--accent-cyan); }
+    @media (max-width: 480px) {
+      .home-hero h1 { font-size: 1.9rem; }
+    }
     .home-hero .tagline {
       font-size: 1.25rem;
       color: var(--text-body);
@@ -226,7 +230,7 @@
     <!-- Hero -->
     <section class="home-hero">
       <div class="container">
-        <h1 class="fade-in">Good data isn't optional.<br>It's the <span class="cyan">foundation companies grow on</span>.</h1>
+        <h1 class="fade-in">Good data isn't optional.<br>It's the <span class="cyan">foundation companies grow&nbsp;on</span>.</h1>
         <p class="tagline fade-in">Data infrastructure for manufacturers, distributors, and aerospace companies and their investors: the layer underneath reporting, dashboards, and AI.</p>
         <a href="https://calendly.com/alyssamcginn/intro-and-demo" class="btn-primary fade-in">Book a Discovery Call <span class="arrow">→</span></a>
         <a href="demo.html" class="btn-secondary fade-in">Try Interactive Dashboards <span class="arrow">→</span></a>
@@ -243,7 +247,7 @@
 
         <div class="audience-grid fade-in">
           <div class="audience-card">
-            <h3>For Companies &amp; Investors</h3>
+            <h3>Companies &amp; Investors</h3>
             <p class="lead">The leadership teams and operating partners running the companies that capital backs.</p>
             <div class="audience-links">
               <a href="buy-side.html">Investors <span style="margin-left: auto;">→</span></a>
@@ -251,7 +255,7 @@
             </div>
           </div>
           <div class="audience-card">
-            <h3>By Industry</h3>
+            <h3>Industry</h3>
             <p class="lead">Three industries we know inside out.</p>
             <div class="audience-links">
               <a href="manufacturing.html">Manufacturing <span style="margin-left: auto;">→</span></a>
@@ -380,11 +384,11 @@
         <div class="quote-grid cols-2 fade-in">
           <div class="quote-block">
             <div class="quote-text">"I walked into my first board meeting with live KPIs on screen. The CEO turned to me and said, 'How did you pull this off so fast?' That's when I knew infoFluency was the right call."</div>
-            <div class="quote-attr">, Fractional CFO, Aerospace Manufacturer</div>
+            <div class="quote-attr">Fractional CFO, Aerospace Manufacturer</div>
           </div>
           <div class="quote-block">
             <div class="quote-text">"It's just a refresh, just an export, just a pivot table. But all of that took my manual effort every time. It's great to just have a dashboard that does it for me."</div>
-            <div class="quote-attr">, President, Investor-Backed Manufacturing Company</div>
+            <div class="quote-attr">President, Investor-Backed Manufacturing Company</div>
           </div>
         </div>
 
