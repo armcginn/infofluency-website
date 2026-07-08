@@ -139,6 +139,7 @@ p {
 
 .section-title {
   margin-bottom: 16px;
+  text-wrap: balance;
 }
 
 .section-desc {
