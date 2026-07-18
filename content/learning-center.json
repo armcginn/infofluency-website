@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "title": "From Fire Drill to Finished Before the Board Even Asks",
+      "category": "board-reporting",
+      "categoryLabel": "Board Reporting",
+      "date": "Jul 2026",
+      "description": "From Fire Drill to Finished Before the Board Even Asks",
+      "readTime": "2 min read",
+      "url": "articles/from-fire-drill-to-finished-before-the-board-even-asks.html"
+    },
+    {
       "title": "Distribution Company: From Spreadsheet Chaos to Automated Reporting",
       "category": "data-automation",
       "categoryLabel": "Data Automation",
