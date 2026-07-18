@@ -92,29 +92,6 @@
     }
   ],
   "caseStudies": [
-    {
-      "title": "Allied Materials: Live KPI Scorecard in 28 Days Post-Close",
-      "category": "post-acquisition",
-      "categoryLabel": "Post-Acquisition",
-      "industry": "Manufacturing",
-      "problem": "No reporting infrastructure before first board meeting",
-      "url": "#"
-    },
-    {
-      "title": "NSL Aerospace: One View Across Three Portfolio Companies",
-      "category": "board-reporting",
-      "categoryLabel": "Board Reporting",
-      "industry": "Aerospace",
-      "problem": "Three add-ons, three systems, no portfolio-wide visibility",
-      "url": "#"
-    },
-    {
-      "title": "Distribution Company: From Spreadsheet Chaos to Automated Reporting",
-      "category": "data-automation",
-      "categoryLabel": "Data Automation",
-      "industry": "Distribution",
-      "problem": "12+ hours/month of manual reporting, no early warning system",
-      "url": "#"
-    }
+    
   ]
 }
