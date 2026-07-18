@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "title": "Distribution Company: From Spreadsheet Chaos to Automated Reporting",
+      "category": "data-automation",
+      "categoryLabel": "Data Automation",
+      "date": "Jul 2026",
+      "description": "Distribution Company: From Spreadsheet Chaos to Automated Reporting",
+      "readTime": "2 min read",
+      "url": "articles/distribution-company-from-spreadsheet-chaos-to-automated-rep.html"
+    },
+    {
       "title": "NSL Aerospace: One View Across Three Companies",
       "category": "post-acquisition",
       "categoryLabel": "Post-Acquisition",
