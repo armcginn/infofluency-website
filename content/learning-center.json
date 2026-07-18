@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "title": "Allied Materials: Live KPI Scorecard in 28 Days Post-Close",
+      "category": "post-acquisition",
+      "categoryLabel": "Post-Acquisition",
+      "date": "Jul 2026",
+      "description": "Allied Materials: Live KPI Scorecard in 28 Days Post-Close",
+      "readTime": "2 min read",
+      "url": "articles/allied-materials-live-kpi-scorecard-in-28-days-post-close.html"
+    },
+    {
       "title": "Revenue Growth through Customer Clarity",
       "category": "data-automation",
       "categoryLabel": "Data Automation",
@@ -91,7 +100,5 @@
       "url": "articles/8-kpis-pe-backed.html"
     }
   ],
-  "caseStudies": [
-    
-  ]
+  "caseStudies": []
 }
