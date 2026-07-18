@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "title": "Revenue Growth through Customer Clarity",
+      "category": "data-automation",
+      "categoryLabel": "Data Automation",
+      "date": "Jul 2026",
+      "description": "Revenue Growth through Customer Clarity",
+      "readTime": "1 min read",
+      "url": "articles/revenue-growth-through-customer-clarity.html"
+    },
+    {
       "title": "Thousands of Customers, and No Idea Who They Actually Were",
       "category": "post-acquisition",
       "categoryLabel": "Post-Acquisition",
