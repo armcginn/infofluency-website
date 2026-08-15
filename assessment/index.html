@@ -18,7 +18,7 @@
   <style>
     /* ===== Data + AI Blueprint, page-specific ===== */
     .baseline-hero {
-      padding: 120px 0 80px;
+      padding: 44px 0 28px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -39,8 +39,10 @@
     }
     .baseline-hero > * { position: relative; z-index: 1; }
     .baseline-hero h1 {
-      max-width: 900px;
-      margin: 0 auto 24px;
+      max-width: 860px;
+      margin: 0 auto 18px;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      line-height: 1.14;
       text-wrap: balance;
     }
     .baseline-hero h1 .cyan { color: var(--accent-cyan); }
@@ -48,8 +50,8 @@
       font-size: 1.2rem;
       color: var(--text-body);
       max-width: 720px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
+      margin: 0 auto 24px;
+      line-height: 1.6;
     }
     .baseline-hero .price-flag {
       display: block;
@@ -58,6 +60,8 @@
       color: var(--text-muted);
     }
     .baseline-hero .price-flag strong { color: var(--accent-cyan); }
+    /* Pull the Why section (with sample carousel) up so the samples peek above the fold */
+    .baseline-hero + .glow-section { padding-top: 16px; }
 
     /* Video placeholder */
     .video-block {
@@ -127,7 +131,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: center;
+      align-items: start;
     }
     .sample-carousel-wrap { position: relative; }
     .sample-carousel {
