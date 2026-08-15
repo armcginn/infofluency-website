@@ -122,6 +122,81 @@
       .multiplier-grid { grid-template-columns: 1fr; }
     }
 
+    /* Why section two-column with sample carousel */
+    .why-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .sample-carousel-wrap { position: relative; }
+    .sample-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: #fff;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .sample-carousel::-webkit-scrollbar { display: none; }
+    .sample-carousel img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: auto;
+      display: block;
+      scroll-snap-align: start;
+    }
+    .sample-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(15, 18, 25, 0.6);
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast);
+    }
+    .sample-arrow:hover { background: rgba(15, 18, 25, 0.85); }
+    .sample-arrow.prev { left: 10px; }
+    .sample-arrow.next { right: 10px; }
+    .sample-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .sample-dots button {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+    .sample-dots button.active { background: var(--accent-cyan); }
+    .sample-caption {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    @media (max-width: 900px) {
+      .why-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
     /* What you get list */
     .get-box {
       margin-top: 40px;
@@ -255,12 +330,33 @@
     <!-- ===== Why this, why now ===== -->
     <section class="glow-section glow-purple">
       <div class="container">
-        <span class="section-tag fade-in">Why this, why now</span>
-        <h2 class="section-title fade-in">Most companies aren't short on AI ideas.</h2>
-        <div class="why-body fade-in">
-          <p>What they're missing is a clear view of which ideas actually fit their objectives, and whether their data can support them.</p>
-          <p>The good news: most companies your size already have what they need. It's just spread across systems, spreadsheets, and a few people's heads. The Blueprint maps where AI can contribute to your goals, then gives you an honest read on what your data would take to get there.</p>
-          <p>AI only pays off when it's aimed at the right problems and sitting on data it can use. We give you an honest read on both, where AI can help and whether your data is ready. If you're already in good shape, we'll tell you that too.</p>
+        <div class="why-top">
+          <div class="why-intro">
+            <span class="section-tag fade-in">Why this, why now</span>
+            <h2 class="section-title fade-in">Most companies aren't short on AI ideas.</h2>
+            <div class="why-body fade-in">
+              <p>What they're missing is a clear view of which ideas actually fit their objectives, and whether their data can support them.</p>
+              <p>The good news: most companies your size already have what they need. It's just spread across systems, spreadsheets, and a few people's heads. The Blueprint maps where AI can contribute to your goals, then gives you an honest read on what your data would take to get there.</p>
+              <p>AI only pays off when it's aimed at the right problems and sitting on data it can use. We give you an honest read on both, where AI can help and whether your data is ready. If you're already in good shape, we'll tell you that too.</p>
+            </div>
+          </div>
+          <div class="why-samples fade-in">
+            <div class="sample-carousel-wrap">
+              <div class="sample-carousel" id="sampleCarousel">
+                <img src="/assets/samples/blueprint-sample-objectives.png" width="1600" height="1000" alt="Sample Blueprint page: 'Where AI can help', the top three objectives ranked by impact and readiness.">
+                <img src="/assets/samples/blueprint-sample-scorecard.png" width="1600" height="1000" loading="lazy" alt="Sample Blueprint page: 'Is your data ready?', a five-area data-readiness score.">
+                <img src="/assets/samples/blueprint-sample-phased-plan.png" width="1600" height="1000" loading="lazy" alt="Sample Blueprint page: 'Data and AI in action', a phased plan across now, next, and later.">
+              </div>
+              <button type="button" class="sample-arrow prev" aria-label="Previous sample">&#8249;</button>
+              <button type="button" class="sample-arrow next" aria-label="Next sample">&#8250;</button>
+            </div>
+            <div class="sample-dots" id="sampleDots">
+              <button type="button" class="active" aria-label="Go to sample 1"></button>
+              <button type="button" aria-label="Go to sample 2"></button>
+              <button type="button" aria-label="Go to sample 3"></button>
+            </div>
+            <p class="sample-caption">A peek at a sample Blueprint. Sample data, not a real client.</p>
+          </div>
         </div>
         <div class="multiplier-grid fade-in">
           <div class="multiplier-card good">
@@ -479,6 +575,28 @@
         question.parentElement.classList.toggle('open');
       });
     });
+
+    // Sample Blueprint carousel
+    (function () {
+      var c = document.getElementById('sampleCarousel');
+      if (!c) return;
+      var slides = c.querySelectorAll('img');
+      var dots = Array.prototype.slice.call(document.querySelectorAll('#sampleDots button'));
+      var prev = document.querySelector('.sample-arrow.prev');
+      var next = document.querySelector('.sample-arrow.next');
+      function current() { return Math.round(c.scrollLeft / c.clientWidth); }
+      function go(i) {
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        c.scrollTo({ left: c.clientWidth * i, behavior: 'smooth' });
+      }
+      if (prev) prev.addEventListener('click', function () { go(current() - 1); });
+      if (next) next.addEventListener('click', function () { go(current() + 1); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+      c.addEventListener('scroll', function () {
+        var i = current();
+        dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
+      });
+    })();
   </script>
 
 </body>
